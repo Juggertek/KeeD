@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.marcelfuchs.example.org.KeeD.MainActivity">
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/action_about"
+        app:showAsAction="never"/>
+</menu>

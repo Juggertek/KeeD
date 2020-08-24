@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NewItemFragment">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/enter_kill_items"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_enter_kills"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints="Eingabefenster für die Anzahl Kills."
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@color/killsTextColor"
+                    android:textSize="30sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="LabelFor" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="48dp"
+                    android:text="@string/enter_deaths_item"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                <EditText
+                    android:id="@+id/et_enter_deaths"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints="Eingabefenster für die Anzahl Tode."
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@color/deathsTextColor"
+                    android:textSize="30sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="LabelFor" />
+
+                <Button
+                    android:id="@+id/btn_enter_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="@string/cancel_entering"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_enter_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/primaryColor"
+                    android:text="@string/confirm_entering"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

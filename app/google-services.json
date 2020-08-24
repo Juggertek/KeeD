@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1055210458247",
+    "firebase_url": "https://keed-5ae43.firebaseio.com",
+    "project_id": "keed-5ae43",
+    "storage_bucket": "keed-5ae43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055210458247:android:811cbc7629632bdb93fc22",
+        "android_client_info": {
+          "package_name": "marcelfuchs.example.org.keed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055210458247-kbdi5ugrjr4jrjg336jd3fbuvdc8n2lh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASYOOOrHsTMlMZvJQvwIY2LElkdJXBD1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055210458247-kbdi5ugrjr4jrjg336jd3fbuvdc8n2lh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

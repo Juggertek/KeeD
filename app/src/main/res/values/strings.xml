@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">KeeD</string>
+    <string name="tv_dialog_about_overView">Vergiss nie mehr einen Kill!</string>
+    <string name="tv_dialog_about_description">Egal ob du über deine Gegner triumphierst oder früh ins Gras beisst um dich mit den Göttern in Valhalla an einen Tisch zu setzen,
+        mit <b>KeeD</b> behältst du stets den Überblick über deine Kill/Death-ratio.</string>
+
+    <!-- Strings für die Kill/Death ViewHolder Items-->
+    <string name="tv_kills_label">Kills:</string>
+    <string name="tv_deaths_label">Deaths:</string>
+    <string name="tv_kd_ratio_label">K/D:</string>
+    <string name="enter_kill_items">kills:</string>
+    <string name="cancel_entering">Cancel</string>
+    <string name="confirm_entering">OK</string>
+    <string name="enter_deaths_item">deaths:</string>
+    <string name="fragment_list_title">Übersicht</string>
+    <string name="fragment_enter_items_title">Eingabe</string>
+    <string name="about_dialog_btn">OK</string>
+    <string name="action_about">\u00DCber die App</string>
+</resources>

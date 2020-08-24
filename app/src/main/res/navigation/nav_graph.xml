@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="marcelfuchs.example.org.keed.MainListFragment"
+        android:label="@string/fragment_list_title">
+        <action
+            android:id="@+id/action_listFragment_to_enterItemsFragment"
+            app:destination="@id/enterItemsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/enterItemsFragment"
+        android:name="marcelfuchs.example.org.keed.NewItemFragment"
+        android:label="@string/fragment_enter_items_title"
+        tools:layout="@layout/fragment_new_item" >
+        <action
+            android:id="@+id/action_enterItemsFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
