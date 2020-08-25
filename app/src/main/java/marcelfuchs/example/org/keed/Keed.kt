@@ -1,29 +1,26 @@
 package marcelfuchs.example.org.keed
 
-import android.util.Log
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import java.time.LocalDateTime
 
-@Entity(tableName = "keed_table")
-data class Keed(val kill: Int, val death: Int) {
+//import androidx.room.ColumnInfo
+//import androidx.room.Entity
+//import androidx.room.PrimaryKey
+
+//@Entity(tableName = "keed_table")
+data class Keed(val kill: Float, val death: Float) {
     companion object {
         var id = 0L
     }
 
-    @PrimaryKey(autoGenerate = true)
+    //    @PrimaryKey(autoGenerate = true)
     var keedId: Long = ++id
 
-    @ColumnInfo(name = "creation_date")
-    var creationDate = "Test Date"
+    //    @ColumnInfo(name = "creation_date")
+    var creationDateTime = LocalDateTime.now()
 
-    @ColumnInfo(name = "creation_time")
-    var creationTime = "Test Time"
+    //    @ColumnInfo(name = "creation_time")
+//    var creationTime = "Test Time"
 
-    @ColumnInfo(name = "ratio")
+    //    @ColumnInfo(name = "ratio")
     var ratio = kill / death
-
-    init {
-        Log.d("Keed", "second Init Block executed... keedId is: $keedId")
-    }
 }
