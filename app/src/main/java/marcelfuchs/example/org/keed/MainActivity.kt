@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         fab.setOnClickListener {
+
             this.findNavController(R.id.nav_host_fragment)
                 .navigate(R.id.action_listFragment_to_enterItemsFragment)
         }

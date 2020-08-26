@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_new_item.*
 
 class NewItemFragment : Fragment() {
@@ -23,43 +24,21 @@ class NewItemFragment : Fragment() {
 
         btn_enter_cancel.setOnClickListener { findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment) }
         btn_enter_ok.setOnClickListener { addItem() }
-
         super.onViewCreated(view, savedInstanceState)
     }
 
 
     fun addItem() {
-        // get Strings from the editText TextViews
-        val kill = et_enter_kills.text.toString().toFloat()
-        val death = et_enter_deaths.text.toString().toFloat()
+        val killString = et_enter_kills.text.toString()
+        val deathsString = et_enter_deaths.text.toString()
 
-        val newItem = Keed(kill, death)
-        mKeedList.add(newItem)
-
-//        val actualDateTime: LocalDateTime = LocalDateTime.parse(LocalDateTime.now().toString())
-//
-//        val dateFormatter: DateTimeFormatter? = DateTimeFormatter.ofPattern("dd. MM. y")
-//        val timeFormatter: DateTimeFormatter? = DateTimeFormatter.ofPattern("HH:mm")
-//
-//        val keedId=null
-//        val creationDate = dateFormatter?.format(actualDateTime)
-//        val creationTime = timeFormatter?.format(actualDateTime)
-//
-//        val kills = et_enter_kills.text.toString().toInt()
-//        val deaths = et_enter_deaths.text.toString().toInt()
-//        val ratio = (kills / deaths).toFloat()
-//
-//        val newEntry = Keed(
-//            keedId,
-//            creationDate,
-//            creationTime,
-//            kills,
-//            deaths,
-//            ratio
-//        )
-//        mKeeDList.add(newEntry)
-//
-//        val lastIndex = mKeeDList.lastIndex
-        findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment)
+        if (killString != "" && deathsString != "") {
+            // get Strings from the editText TextViews
+            val kill = et_enter_kills.text.toString().toFloat()
+            val death = et_enter_deaths.text.toString().toFloat()
+            val newItem = Keed(kill, death)
+            mKeedList.add(newItem)
+            findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment)
+        }
     }
 }
