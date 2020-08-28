@@ -2,6 +2,7 @@ package marcelfuchs.example.org.keed
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,20 @@ import kotlinx.android.synthetic.main.fragment_list.*
 
 var mKeedList: ArrayList<Keed> = ArrayList(
     listOf(
+        Keed(2, 2),
+        Keed(10, 3),
+        Keed(2, 2),
+        Keed(10, 3),
+        Keed(2, 2),
+        Keed(10, 3),
+        Keed(2, 2),
+        Keed(16, 3),
+        Keed(2, 2),
+        Keed(10, 3),
+        Keed(2, 2),
+        Keed(10, 3),
+        Keed(2, 3),
+        Keed(10, 3),
         Keed(2, 2),
         Keed(10, 3),
         Keed(23, 10)
@@ -34,7 +49,6 @@ class MainListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
         rv_killsDeaths.layoutManager = LinearLayoutManager(MainActivity())
         rv_killsDeaths.adapter = RecyclerAdapter(mKeedList)
 
@@ -50,5 +64,30 @@ class MainListFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(rv_killsDeaths)
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        Log.d("MainListFragment", "onActivityCreated called")
+        super.onActivityCreated(savedInstanceState)
+    }
+
+    override fun onStart() {
+        Log.d("MainListFragment", "onStart called")
+        super.onStart()
+    }
+
+    override fun onResume() {
+        Log.d("MainListFragment", "onResume called")
+        super.onResume()
+    }
+
+    override fun onPause() {
+        Log.d("MainListFragment", "onPause called")
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        Log.d("MainListFragment", "onDestroy called")
+        super.onDestroy()
     }
 }

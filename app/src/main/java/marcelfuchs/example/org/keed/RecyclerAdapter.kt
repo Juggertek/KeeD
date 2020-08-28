@@ -1,5 +1,6 @@
 package marcelfuchs.example.org.keed
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,12 +33,7 @@ class RecyclerAdapter(private val mKeedList: ArrayList<Keed>) :
         holder.creationTime.text = time.toString()
         holder.kills.text = mKeedList[position].kill.toString()
         holder.deaths.text = mKeedList[position].death.toString()
-        holder.ratio.text = String.format("%.2f",mKeedList[position].ratio)
-    }
-
-    fun deleteItem(position: Int) {
-        mKeedList.removeAt(position)
-        notifyItemRemoved(position)
+        holder.ratio.text = String.format("%.2f", mKeedList[position].ratio)
     }
 }
 

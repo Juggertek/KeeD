@@ -9,6 +9,8 @@ class SwipeToDelete(var adapter: RecyclerAdapter) : ItemTouchHelper.SimpleCallba
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
         val position: Int = viewHolder.adapterPosition
-        adapter.deleteItem(position)
+//        adapter.deleteItem(position)
+        mKeedList.removeAt(position)
+        adapter.notifyItemRemoved(position)
     }
 }
