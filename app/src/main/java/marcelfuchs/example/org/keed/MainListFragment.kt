@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_list.*
 
 var mKeedList: ArrayList<Keed> = ArrayList(
@@ -36,14 +34,13 @@ class MainListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        fab.setOnClickListener {
-
-            this.findNavController(R.id.nav_host_fragment)
-                .navigate(R.id.action_listFragment_to_enterItemsFragment)
-        }
 
         rv_killsDeaths.layoutManager = LinearLayoutManager(MainActivity())
         rv_killsDeaths.adapter = RecyclerAdapter(mKeedList)
+
+        fab.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_enterItemsFragment)
+        }
 
         // close the softKeyboard as it keeps open when returning from NewItemFragment
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
