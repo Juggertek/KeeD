@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_new_item.*
 
 class NewItemFragment : Fragment() {
@@ -28,15 +27,20 @@ class NewItemFragment : Fragment() {
     }
 
 
-    fun addItem() {
+    private fun addItem() {
         val killString = et_enter_kills.text.toString()
         val deathsString = et_enter_deaths.text.toString()
+        var calcDeath=1F
 
         if (killString != "" && deathsString != "") {
             // get Strings from the editText TextViews
             val kill = et_enter_kills.text.toString().toFloat()
             val death = et_enter_deaths.text.toString().toFloat()
-            val newItem = Keed(kill, death)
+            if (death>=1){
+                calcDeath=death
+            }
+
+            val newItem = Keed(kill, calcDeath)
             mKeedList.add(newItem)
             findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment)
         }

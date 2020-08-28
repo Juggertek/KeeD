@@ -23,12 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(findViewById(R.id.toolbar))
-
-        fab.setOnClickListener {
-
-            this.findNavController(R.id.nav_host_fragment)
-                .navigate(R.id.action_listFragment_to_enterItemsFragment)
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

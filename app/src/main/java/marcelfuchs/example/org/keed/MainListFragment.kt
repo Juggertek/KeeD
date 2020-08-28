@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,6 +35,13 @@ class MainListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        fab.setOnClickListener {
+
+            this.findNavController(R.id.nav_host_fragment)
+                .navigate(R.id.action_listFragment_to_enterItemsFragment)
+        }
+
         rv_killsDeaths.layoutManager = LinearLayoutManager(MainActivity())
         rv_killsDeaths.adapter = RecyclerAdapter(mKeedList)
 
