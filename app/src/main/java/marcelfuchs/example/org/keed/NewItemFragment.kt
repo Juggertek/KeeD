@@ -30,12 +30,12 @@ class NewItemFragment : Fragment() {
     private fun addItem() {
         val killString = et_enter_kills.text.toString()
         val deathsString = et_enter_deaths.text.toString()
-        var calcDeath=1F
+        var calcDeath=1
 
         if (killString != "" && deathsString != "") {
             // get Strings from the editText TextViews
-            val kill = et_enter_kills.text.toString().toFloat()
-            val death = et_enter_deaths.text.toString().toFloat()
+            val kill = et_enter_kills.text.toString().toInt()
+            val death = et_enter_deaths.text.toString().toInt()
             if (death>=1){
                 calcDeath=death
             }

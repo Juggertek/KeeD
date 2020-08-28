@@ -7,7 +7,7 @@ import java.time.LocalDateTime
 //import androidx.room.PrimaryKey
 
 //@Entity(tableName = "keed_table")
-data class Keed(val kill: Float, val death: Float) {
+data class Keed(val kill: Int, val death: Int) {
     companion object {
         var id = 0L
     }
@@ -22,5 +22,5 @@ data class Keed(val kill: Float, val death: Float) {
 //    var creationTime = "Test Time"
 
     //    @ColumnInfo(name = "ratio")
-    var ratio = kill / death
+    var ratio= (kill.toFloat() / death.toFloat())
 }

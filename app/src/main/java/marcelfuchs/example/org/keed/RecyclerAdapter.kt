@@ -30,9 +30,9 @@ class RecyclerAdapter(private val mKeedList: ArrayList<Keed>) :
 
         holder.creationDate.text = date.toString()
         holder.creationTime.text = time.toString()
-        holder.kills.text = String.format("%",mKeedList[position].kill)
-        holder.deaths.text = String.format("%.1f",mKeedList[position].death)
-        holder.ratio.text = String.format("%.2f", mKeedList[position].ratio)
+        holder.kills.text = mKeedList[position].kill.toString()
+        holder.deaths.text = mKeedList[position].death.toString()
+        holder.ratio.text = String.format("%.2f",mKeedList[position].ratio)
     }
 
     fun deleteItem(position: Int) {

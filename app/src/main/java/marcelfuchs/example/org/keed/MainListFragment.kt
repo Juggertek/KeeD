@@ -14,9 +14,9 @@ import kotlinx.android.synthetic.main.fragment_list.*
 
 var mKeedList: ArrayList<Keed> = ArrayList(
     listOf(
-        Keed(2f, 2f),
-        Keed(10f, 3f),
-        Keed(23f, 10f)
+        Keed(2, 2),
+        Keed(10, 3),
+        Keed(23, 10)
     )
 )
 
