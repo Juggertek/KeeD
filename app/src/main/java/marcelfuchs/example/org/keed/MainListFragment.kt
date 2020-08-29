@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_list.*
+import marcelfuchs.example.org.keed.databinding.FragmentListBinding
 
 var mKeedList: ArrayList<Keed> = ArrayList()
 
@@ -19,18 +20,28 @@ lateinit var myAdapter: RecyclerAdapter
 
 class MainListFragment : Fragment() {
 
+    private var _binding: FragmentListBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        for (i in 1..100){
-            val item=Keed(10,i)
+        // Arrayliste mit 100 Werten füllen
+        for (i in 1..100) {
+            val item = Keed(10, i)
             mKeedList.add(item)
         }
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,7 +49,7 @@ class MainListFragment : Fragment() {
         rv_killsDeaths.layoutManager = LinearLayoutManager(MainActivity())
         rv_killsDeaths.adapter = myAdapter
 
-        fab.setOnClickListener {
+        binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_enterItemsFragment)
         }
 
@@ -50,6 +61,12 @@ class MainListFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(rv_killsDeaths)
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    //Fragments outlive their views. Make sure you clean up any references to the binding class instance in the fragment's onDestroyView() method.
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
