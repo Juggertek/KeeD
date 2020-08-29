@@ -13,27 +13,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_list.*
 
-var mKeedList: ArrayList<Keed> = ArrayList(
-    listOf(
-        Keed(2, 2),
-        Keed(10, 3),
-        Keed(2, 2),
-        Keed(10, 3),
-        Keed(2, 2),
-        Keed(10, 3),
-        Keed(2, 2),
-        Keed(16, 3),
-        Keed(2, 2),
-        Keed(10, 3),
-        Keed(2, 2),
-        Keed(10, 3),
-        Keed(2, 3),
-        Keed(10, 3),
-        Keed(2, 2),
-        Keed(10, 3),
-        Keed(23, 10)
-    )
-)
+var mKeedList: ArrayList<Keed> = ArrayList()
+
 lateinit var myAdapter: RecyclerAdapter
 
 class MainListFragment : Fragment() {
@@ -42,6 +23,11 @@ class MainListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        for (i in 1..100){
+            val item=Keed(10,i)
+            mKeedList.add(item)
+        }
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_list, container, false)
