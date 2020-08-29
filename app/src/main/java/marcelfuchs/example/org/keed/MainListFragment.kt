@@ -34,9 +34,9 @@ var mKeedList: ArrayList<Keed> = ArrayList(
         Keed(23, 10)
     )
 )
+lateinit var myAdapter: RecyclerAdapter
 
 class MainListFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,9 +48,9 @@ class MainListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        myAdapter = RecyclerAdapter(mKeedList)
         rv_killsDeaths.layoutManager = LinearLayoutManager(MainActivity())
-        rv_killsDeaths.adapter = RecyclerAdapter(mKeedList)
+        rv_killsDeaths.adapter = myAdapter
 
         fab.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_enterItemsFragment)
@@ -60,7 +60,7 @@ class MainListFragment : Fragment() {
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(requireView().getWindowToken(), 0)
 
-        val itemTouchHelper = ItemTouchHelper(SwipeToDelete(RecyclerAdapter(mKeedList)))
+        val itemTouchHelper = ItemTouchHelper(SwipeToDelete())
         itemTouchHelper.attachToRecyclerView(rv_killsDeaths)
 
         super.onViewCreated(view, savedInstanceState)
