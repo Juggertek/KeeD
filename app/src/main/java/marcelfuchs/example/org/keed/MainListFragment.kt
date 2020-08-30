@@ -68,29 +68,4 @@ class MainListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        Log.d("MainListFragment", "onActivityCreated called")
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun onStart() {
-        Log.d("MainListFragment", "onStart called")
-        super.onStart()
-    }
-
-    override fun onResume() {
-        Log.d("MainListFragment", "onResume called")
-        super.onResume()
-    }
-
-    override fun onPause() {
-        Log.d("MainListFragment", "onPause called")
-        super.onPause()
-    }
-
-    override fun onDestroy() {
-        Log.d("MainListFragment", "onDestroy called")
-        super.onDestroy()
-    }
 }
