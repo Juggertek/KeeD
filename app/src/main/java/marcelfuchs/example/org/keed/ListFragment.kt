@@ -7,18 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_list.*
 import marcelfuchs.example.org.keed.databinding.FragmentListBinding
 
-var mKeedList: ArrayList<Keed> = ArrayList()
-
 lateinit var myAdapter: RecyclerAdapter
+//private lateinit var viewModel: ListViewModel
 
 class MainListFragment : Fragment() {
+
+    private val viewModel: ListViewModel by activityViewModels()
 
     private var _binding: FragmentListBinding? = null
 
@@ -32,20 +36,14 @@ class MainListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+//        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
 
-        // Arrayliste mit 100 Werten füllen
-        for (i in 1..100) {
-            val item = Keed(10, i)
-            mKeedList.add(item)
-        }
-
-        _binding = FragmentListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        myAdapter = RecyclerAdapter(mKeedList)
+        myAdapter = RecyclerAdapter(viewModel.keedList)
         rv_killsDeaths.layoutManager = LinearLayoutManager(MainActivity())
         rv_killsDeaths.adapter = myAdapter
 

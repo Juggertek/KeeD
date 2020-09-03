@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_new_item.*
-import marcelfuchs.example.org.keed.databinding.FragmentListBinding
 import marcelfuchs.example.org.keed.databinding.FragmentNewItemBinding
 
+//private lateinit var viewModel: ListViewModel
+
 class NewItemFragment : Fragment() {
+
+    private val viewModel:ListViewModel by activityViewModels()
 
     private var _binding: FragmentNewItemBinding? = null
 
@@ -23,10 +27,10 @@ class NewItemFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+//        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
 
-        _binding=FragmentNewItemBinding.inflate(inflater,container,false)
-        val view=binding.root
-        return view
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_item, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,7 +54,7 @@ class NewItemFragment : Fragment() {
             }
 
             val newItem = Keed(kill, calcDeath)
-            mKeedList.add(newItem)
+            viewModel.keedList.add(newItem)
             findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment)
         }
     }
