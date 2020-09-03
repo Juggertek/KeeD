@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_list.*
 import marcelfuchs.example.org.keed.databinding.FragmentListBinding
 
@@ -34,6 +35,7 @@ class MainListFragment : Fragment() {
     ): View? {
 
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
+
         return binding.root
     }
 
@@ -46,12 +48,21 @@ class MainListFragment : Fragment() {
             findNavController().navigate(R.id.action_listFragment_to_enterItemsFragment)
         }
 
+        val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder) = false
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position: Int = viewHolder.adapterPosition
+                viewModel.removeFromList(position)
+                myAdapter.notifyItemRemoved(position)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(rv_killsDeaths)
+
         // close the softKeyboard as it keeps open when returning from NewItemFragment
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(requireView().windowToken, 0)
-
-        val itemTouchHelper = ItemTouchHelper(SwipeToDelete())
-        itemTouchHelper.attachToRecyclerView(rv_killsDeaths)
 
         super.onViewCreated(view, savedInstanceState)
     }

@@ -10,16 +10,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import marcelfuchs.example.org.keed.databinding.FragmentNewItemBinding
 
-//private lateinit var viewModel: ListViewModel
-
 class NewItemFragment : Fragment() {
 
     private val viewModel:ListViewModel by activityViewModels()
 
     private var _binding: FragmentNewItemBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(

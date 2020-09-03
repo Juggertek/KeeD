@@ -13,4 +13,8 @@ class ListViewModel : ViewModel() {
             keedList.add(item)
         }
     }
+
+    fun removeFromList(position: Int) {
+        keedList.removeAt(position)
+    }
 }
