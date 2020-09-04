@@ -3,161 +3,140 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="4dp"
+        android:background="@color/cardview_dark_background">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            android:id="@+id/dateTime"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/secondaryTextColor"
             app:cardCornerRadius="5dp"
-            app:cardElevation="5dp">
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <TextView
+                android:id="@+id/tv_creationDate"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="35dp"
+                android:padding="5dp"
+                android:textAlignment="center"
+                tools:text="CreationDate" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/dateTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:cardBackgroundColor="@color/secondaryTextColor"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/tv_creationDate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            tools:text="CreationDate" />
-
-                        <TextView
-                            android:id="@+id/tv_creationTime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            tools:text="CreationTime" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/killDeaths"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:cardBackgroundColor="@color/secondaryTextColor"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="5dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/dateTime"
-                    app:layout_constraintEnd_toStartOf="@+id/ratio"
-                    app:layout_constraintStart_toEndOf="@+id/dateTime"
-                    app:layout_constraintTop_toTopOf="@+id/dateTime">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tv_killLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/tv_kills_label"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_deathsLabel"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/tv_kills"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
-                            android:textColor="@color/killsTextColor"
-                            app:layout_constraintBaseline_toBaselineOf="@+id/tv_killLabel"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            tools:text="kills" />
-
-                        <TextView
-                            android:id="@+id/tv_deathsLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:text="@string/tv_deaths_label"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
-
-                        <TextView
-                            android:id="@+id/tv_deaths"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:layout_marginEnd="8dp"
-                            android:textColor="@color/deathsTextColor"
-                            app:layout_constraintBaseline_toBaselineOf="@+id/tv_deathsLabel"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            tools:text="deaths" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/ratio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="8dp"
-                    app:cardBackgroundColor="@color/secondaryTextColor"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="5dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/dateTime"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/dateTime">
-
-                    <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="8dp">
-
-                        <!--                    <TextView-->
-                        <!--                        android:id="@+id/tv_ratioLabel"-->
-                        <!--                        android:layout_width="wrap_content"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="@string/tv_kd_ratio_label"-->
-                        <!--                        android:textSize="24sp" />-->
-
-                        <TextView
-                            android:id="@+id/tv_ratio"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textSize="30sp"
-                            android:textStyle="bold"
-                            tools:text="k/d-ratio" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_creationTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:textAlignment="center"
+                tools:text="CreationTime" />
 
         </androidx.cardview.widget.CardView>
-    </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/killDeaths"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@color/secondaryTextColor"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/dateTime"
+            app:layout_constraintEnd_toStartOf="@+id/ratio"
+            app:layout_constraintStart_toEndOf="@+id/dateTime"
+            app:layout_constraintTop_toTopOf="@+id/dateTime">
+
+
+            <TextView
+                android:id="@+id/tv_killLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="35dp"
+                android:padding="5dp"
+                android:text="@string/tv_kills_label" />
+
+            <TextView
+                android:id="@+id/tv_kills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="35dp"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/killsTextColor"
+                tools:text="@string/tv_kills_label" />
+
+            <TextView
+                android:id="@+id/tv_deathsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="@string/tv_deaths_label" />
+
+            <TextView
+                android:id="@+id/tv_deaths"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/deathsTextColor"
+                tools:text="deaths" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ratio"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="@color/secondaryTextColor"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/killDeaths"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/killDeaths">
+
+            <TextView
+                android:id="@+id/tv_ratio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="4.85" />
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
 

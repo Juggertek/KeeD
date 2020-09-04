@@ -16,4 +16,5 @@
     <string name="fragment_enter_items_title">Eingabe</string>
     <string name="about_dialog_btn">OK</string>
     <string name="action_about">\u00DCber die App</string>
+    <string name="instructions">Start by pressing the add button</string>
 </resources>

@@ -34,12 +34,13 @@
 
                 <EditText
                     android:id="@+id/et_enter_kills"
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:autofillHints="Eingabefenster für die Anzahl Kills."
                     android:ems="10"
                     android:inputType="number"
+                    android:maxLength="3"
                     android:textColor="@color/killsTextColor"
                     android:textSize="30sp"
                     app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
@@ -59,12 +60,13 @@
 
                 <EditText
                     android:id="@+id/et_enter_deaths"
-                    android:layout_width="50dp"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:autofillHints="Eingabefenster für die Anzahl Tode."
                     android:ems="10"
                     android:inputType="number"
+                    android:maxLength="3"
                     android:textColor="@color/deathsTextColor"
                     android:textSize="30sp"
                     app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
