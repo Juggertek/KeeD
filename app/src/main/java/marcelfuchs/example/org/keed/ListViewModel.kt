@@ -8,7 +8,7 @@ class ListViewModel : ViewModel() {
 
     init {
         // Arrayliste mit Werten füllen
-        for (i in 1..25) {
+        for (i in 1..4) {
             val item = Keed(10, i)
             keedList.add(item)
         }

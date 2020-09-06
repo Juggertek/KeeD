@@ -26,8 +26,8 @@ android {
     }
 
     // ermöglicht dataBinding:
-    dataBinding {
-        enabled true
+    buildFeatures {
+        dataBinding true
     }
 
     compileOptions {

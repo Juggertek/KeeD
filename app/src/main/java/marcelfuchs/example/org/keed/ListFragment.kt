@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_list.*
 import marcelfuchs.example.org.keed.databinding.FragmentListBinding
 
 lateinit var myAdapter: RecyclerAdapter
@@ -22,10 +21,10 @@ class MainListFragment : Fragment() {
 
     private val viewModel: ListViewModel by activityViewModels()
 
-    private var _binding: FragmentListBinding? = null
+    private var mBinding: FragmentListBinding? = null
 
     // This property is only valid between onCreateView and onDestroyView.
-    private val binding get() = _binding!!
+    private val binding get() = mBinding!!
 
 
     override fun onCreateView(
@@ -34,19 +33,22 @@ class MainListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         myAdapter = RecyclerAdapter(viewModel.keedList)
-        rv_killsDeaths.layoutManager = LinearLayoutManager(MainActivity())
-        rv_killsDeaths.adapter = myAdapter
+        binding.rvKillsDeaths.layoutManager = LinearLayoutManager(MainActivity())
+        binding.rvKillsDeaths.adapter = myAdapter
+
+
 
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_enterItemsFragment)
         }
+
 
         val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder) = false
@@ -58,7 +60,7 @@ class MainListFragment : Fragment() {
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
-        itemTouchHelper.attachToRecyclerView(rv_killsDeaths)
+        itemTouchHelper.attachToRecyclerView(binding.rvKillsDeaths)
 
         // close the softKeyboard as it keeps open when returning from NewItemFragment
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -70,6 +72,6 @@ class MainListFragment : Fragment() {
     //Fragments outlive their views. Make sure you clean up any references to the binding class instance in the fragment's onDestroyView() method.
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        mBinding = null
     }
 }
