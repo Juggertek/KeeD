@@ -12,7 +12,7 @@ import marcelfuchs.example.org.keed.databinding.FragmentNewItemBinding
 
 class NewItemFragment : Fragment() {
 
-    private val viewModel:ListViewModel by activityViewModels()
+    private val viewModel: ListViewModel by activityViewModels()
 
     private var _binding: FragmentNewItemBinding? = null
 
