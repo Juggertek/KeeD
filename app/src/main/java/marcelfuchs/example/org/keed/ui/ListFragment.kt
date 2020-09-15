@@ -36,8 +36,8 @@ class MainListFragment : Fragment() {
     ): View? {
 
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
-
         binding.lifecycleOwner=this
+        binding.viewModel=viewModel
 
         return binding.root
     }

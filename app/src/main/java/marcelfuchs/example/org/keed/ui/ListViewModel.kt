@@ -10,7 +10,7 @@ class ListViewModel : ViewModel() {
 
     val keedList = ArrayList<Keed>()
 
-    private val _listSize = MutableLiveData<Int>()
+    private val _listSize = MutableLiveData(0)
     val listSize: LiveData<Int> = _listSize
 
     init {

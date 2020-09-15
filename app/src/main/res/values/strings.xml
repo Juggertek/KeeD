@@ -17,4 +17,6 @@
     <string name="about_dialog_btn">OK</string>
     <string name="action_about">\u00DCber die App</string>
     <string name="instructions">Start by pressing the add button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
