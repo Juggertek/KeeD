@@ -1,4 +1,4 @@
-package marcelfuchs.example.org.keed
+package marcelfuchs.example.org.keed.data
 
 import java.time.LocalDateTime
 

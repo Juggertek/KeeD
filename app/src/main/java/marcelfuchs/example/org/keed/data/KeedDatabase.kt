@@ -1,4 +1,4 @@
-package marcelfuchs.example.org.keed.RoomDB
+package marcelfuchs.example.org.keed.data
 ////
 ////import android.content.Context
 ////import androidx.room.Database

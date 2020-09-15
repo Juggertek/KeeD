@@ -1,4 +1,4 @@
-package marcelfuchs.example.org.keed
+package marcelfuchs.example.org.keed.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -13,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import marcelfuchs.example.org.keed.R
+import marcelfuchs.example.org.keed.RecyclerAdapter
 import marcelfuchs.example.org.keed.databinding.FragmentListBinding
 
 lateinit var myAdapter: RecyclerAdapter

@@ -1,4 +1,4 @@
-package marcelfuchs.example.org.keed
+package marcelfuchs.example.org.keed.ui
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.ListFragment
-import androidx.lifecycle.ViewModelProvider
+import marcelfuchs.example.org.keed.BuildConfig
+import marcelfuchs.example.org.keed.R
 import marcelfuchs.example.org.keed.databinding.ActivityMainBinding
 
 

@@ -1,9 +1,10 @@
-package marcelfuchs.example.org.keed
+package marcelfuchs.example.org.keed.ui
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import marcelfuchs.example.org.keed.data.Keed
 
 class ListViewModel : ViewModel() {
 

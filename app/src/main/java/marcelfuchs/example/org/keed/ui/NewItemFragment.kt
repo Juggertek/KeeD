@@ -1,4 +1,4 @@
-package marcelfuchs.example.org.keed
+package marcelfuchs.example.org.keed.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import marcelfuchs.example.org.keed.data.Keed
+import marcelfuchs.example.org.keed.R
 import marcelfuchs.example.org.keed.databinding.FragmentNewItemBinding
 
 class NewItemFragment : Fragment() {

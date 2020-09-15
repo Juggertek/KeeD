@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="marcelfuchs.example.org.keed.MainListFragment"
+        android:name="marcelfuchs.example.org.keed.ui.MainListFragment"
         android:label="@string/fragment_list_title">
         <action
             android:id="@+id/action_listFragment_to_enterItemsFragment"
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/enterItemsFragment"
-        android:name="marcelfuchs.example.org.keed.NewItemFragment"
+        android:name="marcelfuchs.example.org.keed.ui.NewItemFragment"
         android:label="@string/fragment_enter_items_title"
         tools:layout="@layout/fragment_new_item" >
         <action

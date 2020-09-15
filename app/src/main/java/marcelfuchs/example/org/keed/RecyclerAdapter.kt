@@ -1,12 +1,12 @@
 package marcelfuchs.example.org.keed
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.keed_item.view.*
+import marcelfuchs.example.org.keed.data.Keed
 import java.time.format.DateTimeFormatter
 
 

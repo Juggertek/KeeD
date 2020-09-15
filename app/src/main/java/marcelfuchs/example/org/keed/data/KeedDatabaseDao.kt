@@ -1,4 +1,4 @@
-package marcelfuchs.example.org.keed.RoomDB
+package marcelfuchs.example.org.keed.data
 //
 //import androidx.lifecycle.LiveData
 //import androidx.room.Dao

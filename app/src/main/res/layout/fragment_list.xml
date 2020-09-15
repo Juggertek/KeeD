@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="marcelfuchs.example.org.keed.ListViewModel" />
+            type="marcelfuchs.example.org.keed.ui.ListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
