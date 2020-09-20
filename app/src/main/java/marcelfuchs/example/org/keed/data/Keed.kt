@@ -8,6 +8,14 @@ import java.time.LocalDateTime
 
 //@Entity(tableName = "keed_table")
 data class Keed(val kill: Int, val death: Int) {
+    private var calcDeath = 1
+
+    init {
+        if (death != 0) {
+            calcDeath = death
+        }
+    }
+
     companion object {
         var id = 0L
     }
@@ -22,5 +30,5 @@ data class Keed(val kill: Int, val death: Int) {
 //    var creationTime = "Test Time"
 
     //    @ColumnInfo(name = "ratio")
-    var ratio= (kill.toFloat() / death.toFloat())
+    var ratio = (kill.toFloat() / calcDeath.toFloat())
 }

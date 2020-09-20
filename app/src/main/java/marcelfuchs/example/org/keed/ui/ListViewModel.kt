@@ -13,19 +13,15 @@ class ListViewModel : ViewModel() {
     private val _listSize = MutableLiveData(0)
     val listSize: LiveData<Int> = _listSize
 
-    init {
-        // Arrayliste mit Werten füllen
-        for (i in 1..4) {
-            val item = Keed(10, i)
-            keedList.add(item)
-        }
-        _listSize.value=keedList.size
-        Log.d("ListViewModel","listSize after creation is: ${listSize.value}")
+
+    fun addItemToList(kill: Int, death: Int) {
+        val newItem = Keed(kill, death)
+        keedList.add(newItem)
+        _listSize.value = keedList.size
     }
 
     fun removeItemFromList(position: Int) {
         keedList.removeAt(position)
-        _listSize.value=keedList.size
-        Log.d("ListViewModel","listSize is: ${listSize.value}")
+        _listSize.value = keedList.size
     }
 }

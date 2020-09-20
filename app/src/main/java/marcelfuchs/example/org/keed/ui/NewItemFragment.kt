@@ -26,35 +26,28 @@ class NewItemFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
-
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_item, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnEnterCancel.setOnClickListener { findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment) }
-        binding.btnEnterOk.setOnClickListener { addItemToList() }
+        binding.btnEnterOk.setOnClickListener {
+            getStrings()
+            findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment)
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 
 
-    private fun addItemToList() {
+    private fun getStrings() {
         val killString = binding.etEnterKills.text.toString()
         val deathsString = binding.etEnterDeaths.text.toString()
-        var calcDeath = 1
-
         if (killString != "" && deathsString != "") {
             // get Strings from the editText TextViews
             val kill = binding.etEnterKills.text.toString().toInt()
             val death = binding.etEnterDeaths.text.toString().toInt()
-            if (death >= 1) {
-                calcDeath = death
-            }
-
-            val newItem = Keed(kill, calcDeath)
-            viewModel.keedList.add(newItem)
-            findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment)
+            viewModel.addItemToList(kill, death)
         }
     }
 
