@@ -59,7 +59,7 @@ class MainListFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position: Int = viewHolder.adapterPosition
-                viewModel.removeFromList(position)
+                viewModel.removeItemFromList(position)
                 myAdapter.notifyItemRemoved(position)
             }
         }

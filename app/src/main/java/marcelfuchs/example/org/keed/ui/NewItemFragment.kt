@@ -34,12 +34,12 @@ class NewItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.btnEnterCancel.setOnClickListener { findNavController().navigate(R.id.action_enterItemsFragment_to_listFragment) }
-        binding.btnEnterOk.setOnClickListener { addItem() }
+        binding.btnEnterOk.setOnClickListener { addItemToList() }
         super.onViewCreated(view, savedInstanceState)
     }
 
 
-    private fun addItem() {
+    private fun addItemToList() {
         val killString = binding.etEnterKills.text.toString()
         val deathsString = binding.etEnterDeaths.text.toString()
         var calcDeath = 1

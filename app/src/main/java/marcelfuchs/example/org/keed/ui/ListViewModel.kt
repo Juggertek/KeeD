@@ -23,7 +23,7 @@ class ListViewModel : ViewModel() {
         Log.d("ListViewModel","listSize after creation is: ${listSize.value}")
     }
 
-    fun removeFromList(position: Int) {
+    fun removeItemFromList(position: Int) {
         keedList.removeAt(position)
         _listSize.value=keedList.size
         Log.d("ListViewModel","listSize is: ${listSize.value}")
