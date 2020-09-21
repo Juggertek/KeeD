@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import marcelfuchs.example.org.keed.data.Keed
 import marcelfuchs.example.org.keed.R
 import marcelfuchs.example.org.keed.databinding.FragmentNewItemBinding
 
