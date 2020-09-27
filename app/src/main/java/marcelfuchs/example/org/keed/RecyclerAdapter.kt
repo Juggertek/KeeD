@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.keed_item.view.*
 import marcelfuchs.example.org.keed.data.Keed
-import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat
 
 
 class RecyclerAdapter(private val mKeedList: ArrayList<Keed>) :
@@ -23,11 +23,10 @@ class RecyclerAdapter(private val mKeedList: ArrayList<Keed>) :
     override fun getItemCount() = mKeedList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val dateFormatter: DateTimeFormatter? = DateTimeFormatter.ofPattern("dd. MM. y")
-        val timeFormatter: DateTimeFormatter? = DateTimeFormatter.ofPattern("HH:mm")
+        val dateFormat = SimpleDateFormat("dd. MMM. y")
 
-        val date = dateFormatter?.format(mKeedList[position].creationDateTime)
-        val time = timeFormatter?.format(mKeedList[position].creationDateTime)
+        val date = dateFormat.format(mKeedList[position].creationDate)
+        val time = mKeedList[position].creationTime
 
         holder.creationDate.text = date.toString()
         holder.creationTime.text = time.toString()
