@@ -4,11 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import marcelfuchs.example.org.keed.converter.Converters
 import marcelfuchs.example.org.keed.model.Keed
 
 @Database(entities = [Keed::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class KeedDatabase : RoomDatabase() {
-    abstract val keedDao: KeedDao
+    abstract fun keedDao(): KeedDao
 
     companion object {
         @Volatile

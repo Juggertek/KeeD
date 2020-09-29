@@ -19,5 +19,5 @@ interface KeedDao {
     suspend fun deleteAllKeed()
 
     @Query("SELECT * FROM keed_table")
-    fun readAllKeed():LiveData<List<Keed>>
+    fun readAllData():LiveData<List<Keed>>
 }

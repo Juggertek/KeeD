@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="marcelfuchs.example.org.keed.ui.ListViewModel" />
+            type="marcelfuchs.example.org.keed.viewmodel.ListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="@string/instructions"
             android:textSize="24sp"
-            app:hideIfZero="@{viewModel.listSize}"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

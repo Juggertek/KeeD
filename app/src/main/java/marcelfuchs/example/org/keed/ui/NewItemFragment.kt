@@ -10,6 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import marcelfuchs.example.org.keed.R
 import marcelfuchs.example.org.keed.databinding.FragmentNewItemBinding
+import marcelfuchs.example.org.keed.model.Keed
+import marcelfuchs.example.org.keed.viewmodel.ListViewModel
 
 class NewItemFragment : Fragment() {
 
@@ -46,7 +48,8 @@ class NewItemFragment : Fragment() {
             // get Strings from the editText TextViews
             val kill = binding.etEnterKills.text.toString().toInt()
             val death = binding.etEnterDeaths.text.toString().toInt()
-            viewModel.addItemToList(kill, death)
+            val keed=Keed(kill, death)
+            viewModel.addKeed(keed)
         }
     }
 

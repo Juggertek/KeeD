@@ -13,9 +13,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import marcelfuchs.example.org.keed.R
 import marcelfuchs.example.org.keed.RecyclerAdapter
+import marcelfuchs.example.org.keed.R
 import marcelfuchs.example.org.keed.databinding.FragmentListBinding
+import marcelfuchs.example.org.keed.model.Keed
+import marcelfuchs.example.org.keed.viewmodel.ListViewModel
 
 lateinit var myAdapter: RecyclerAdapter
 
@@ -43,7 +45,7 @@ class MainListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        myAdapter = RecyclerAdapter(viewModel.keedList)
+        myAdapter = RecyclerAdapter()
         binding.rvKillsDeaths.layoutManager = LinearLayoutManager(MainActivity())
         binding.rvKillsDeaths.adapter = myAdapter
 
@@ -59,7 +61,8 @@ class MainListFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position: Int = viewHolder.adapterPosition
-                viewModel.removeItemFromList(position)
+                val item= viewModel.keedList.value!![position]
+                viewModel.deleteUser(item)
                 myAdapter.notifyItemRemoved(position)
             }
         }
