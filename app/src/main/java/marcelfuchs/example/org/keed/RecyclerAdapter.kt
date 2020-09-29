@@ -44,6 +44,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         holder.deaths.text = keedList[position].death.toString()
         holder.ratio.text = String.format("%.2f", keedList[position].ratio)
     }
+
+    fun setData(keed: List<Keed>) {
+        this.keedList = keed
+        notifyDataSetChanged()
+    }
 }
 
 

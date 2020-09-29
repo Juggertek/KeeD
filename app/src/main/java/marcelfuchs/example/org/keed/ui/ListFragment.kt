@@ -9,14 +9,14 @@ import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import marcelfuchs.example.org.keed.RecyclerAdapter
 import marcelfuchs.example.org.keed.R
+import marcelfuchs.example.org.keed.RecyclerAdapter
 import marcelfuchs.example.org.keed.databinding.FragmentListBinding
-import marcelfuchs.example.org.keed.model.Keed
 import marcelfuchs.example.org.keed.viewmodel.ListViewModel
 
 lateinit var myAdapter: RecyclerAdapter
@@ -37,6 +37,17 @@ class MainListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //Recyclerview
+        myAdapter = RecyclerAdapter()
+        binding.rvKillsDeaths.layoutManager = LinearLayoutManager(MainActivity())
+        binding.rvKillsDeaths.adapter = myAdapter
+
+
+        //ListViewModel
+        viewModel.keedList.observe(viewLifecycleOwner, Observer { keed ->
+            myAdapter.setData(keed)
+        })
+
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
         binding.lifecycleOwner=this
         binding.viewModel=viewModel
@@ -45,11 +56,6 @@ class MainListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        myAdapter = RecyclerAdapter()
-        binding.rvKillsDeaths.layoutManager = LinearLayoutManager(MainActivity())
-        binding.rvKillsDeaths.adapter = myAdapter
-
-
 
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_enterItemsFragment)

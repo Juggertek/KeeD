@@ -8,11 +8,11 @@ class KeedRepository(private val keedDao: KeedDao) {
 
     val readAllData: LiveData<List<Keed>> = keedDao.readAllData()
 
-    suspend fun addUser(keed: Keed) {
+    suspend fun addKeed(keed: Keed) {
         keedDao.addKeed(keed)
     }
 
-    suspend fun deleteUser(keed: Keed) {
+    suspend fun deleteKeed(keed: Keed) {
         keedDao.deleteKeed(keed)
     }
 }

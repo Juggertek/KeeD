@@ -23,13 +23,13 @@ class ListViewModel(application: Application) : AndroidViewModel(application) {
 
     fun addKeed(keed: Keed) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addUser(keed)
+            repository.addKeed(keed)
         }
     }
 
     fun deleteUser(user: Keed) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteUser(user)
+            repository.deleteKeed(user)
         }
     }
 }
