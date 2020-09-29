@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.keed_item.view.*
-import marcelfuchs.example.org.keed.data.Keed
+import marcelfuchs.example.org.keed.model.Keed
 import java.text.SimpleDateFormat
 
 

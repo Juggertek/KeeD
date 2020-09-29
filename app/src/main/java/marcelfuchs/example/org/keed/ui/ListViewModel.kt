@@ -3,7 +3,7 @@ package marcelfuchs.example.org.keed.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import marcelfuchs.example.org.keed.data.Keed
+import marcelfuchs.example.org.keed.model.Keed
 
 class ListViewModel : ViewModel() {
 

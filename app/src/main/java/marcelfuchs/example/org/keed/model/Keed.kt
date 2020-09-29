@@ -1,4 +1,4 @@
-package marcelfuchs.example.org.keed.data
+package marcelfuchs.example.org.keed.model
 
 import java.sql.Date
 import java.sql.Time
