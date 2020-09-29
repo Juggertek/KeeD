@@ -1,28 +1,23 @@
 package marcelfuchs.example.org.keed.data
-//
-//import androidx.lifecycle.LiveData
-//import androidx.room.Dao
-//import androidx.room.Insert
-//import androidx.room.Query
-//import androidx.room.Update
-//
-//@Dao
-//interface KeedDatabaseDao {
-//    @Insert
-//    fun insert(keed: Keed)
-//
-//    @Update
-//    fun update(keed: Keed)
-//
-//    @Query("SELECT * from keed_table WHERE keedId = :key")
-//    fun get(key: Long): Keed?
-//
-//    @Query("DELETE FROM keed_table")
-//    fun clear()
-//
-//    @Query("SELECT * FROM keed_table ORDER BY keedId DESC")
-//    fun getAllKeed(): LiveData<List<Keed>>
-//
-//    @Query("SELECT * FROM keed_table ORDER BY keedId DESC LIMIT 1")
-//    fun getKeed(): Keed?
-//}
+
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.Query
+import marcelfuchs.example.org.keed.model.Keed
+
+@Dao
+interface KeedDao {
+    @Insert
+    suspend fun addKeed(keed: Keed)
+
+    @Delete
+    suspend fun deleteKeed(keed: Keed)
+
+    @Query("DELETE FROM keed_table")
+    suspend fun deleteAllKeed()
+
+    @Query("SELECT * FROM keed_table")
+    fun readAllKeed():LiveData<List<Keed>>
+}
