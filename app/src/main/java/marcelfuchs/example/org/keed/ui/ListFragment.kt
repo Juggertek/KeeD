@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,11 +19,11 @@ import marcelfuchs.example.org.keed.RecyclerAdapter
 import marcelfuchs.example.org.keed.databinding.FragmentListBinding
 import marcelfuchs.example.org.keed.viewmodel.ListViewModel
 
-lateinit var myAdapter: RecyclerAdapter
-
 class MainListFragment : Fragment() {
 
-    private val viewModel: ListViewModel by activityViewModels()
+    private lateinit var myAdapter: RecyclerAdapter
+
+    private lateinit var mListViewModel: ListViewModel
 
     private var mBinding: FragmentListBinding? = null
 
@@ -37,20 +37,20 @@ class MainListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        //Recyclerview
-        myAdapter = RecyclerAdapter()
-        binding.rvKillsDeaths.layoutManager = LinearLayoutManager(MainActivity())
-        binding.rvKillsDeaths.adapter = myAdapter
-
-
         //ListViewModel
-        viewModel.keedList.observe(viewLifecycleOwner, Observer { keed ->
+        mListViewModel = ViewModelProvider(this).get(ListViewModel::class.java)
+        mListViewModel.keedList.observe(viewLifecycleOwner, Observer { keed ->
             myAdapter.setData(keed)
         })
 
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
-        binding.lifecycleOwner=this
-        binding.viewModel=viewModel
+        binding.lifecycleOwner = this
+        binding.viewModel = mListViewModel
+
+        //Recyclerview
+        myAdapter = RecyclerAdapter()
+        binding.rvKillsDeaths.layoutManager = LinearLayoutManager(MainActivity())
+        binding.rvKillsDeaths.adapter = myAdapter
 
         return binding.root
     }
@@ -67,8 +67,8 @@ class MainListFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position: Int = viewHolder.adapterPosition
-                val item= viewModel.keedList.value!![position]
-                viewModel.deleteUser(item)
+                val item = mListViewModel.keedList.value!![position]
+                mListViewModel.deleteUser(item)
                 myAdapter.notifyItemRemoved(position)
             }
         }
