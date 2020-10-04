@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.keed_item.view.*
 import marcelfuchs.example.org.keed.model.Keed
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 
@@ -32,7 +33,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     override fun getItemCount() = keedList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val dateFormat = SimpleDateFormat("dd. MMM. y")
+//        val dateFormat=DateFormat.getDateInstance()
+        val dateFormat = SimpleDateFormat("dd. MMM y")
 
         val date = dateFormat.format(keedList[position].creationDate)
         val time = keedList[position].creationTime
